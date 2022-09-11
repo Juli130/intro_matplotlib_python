@@ -8,6 +8,8 @@
 # que aparecen en verde con el hashtag "#"
 
 # Ejercicios de matplotlib
+from cProfile import label
+from turtle import color
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -30,10 +32,28 @@ if __name__ == '__main__':
     # y4 = raiz_cuadrada(X)
 
     # Implementación:
-    y1 = x**2
-    y2 = x**3
-    y3 = x**4
-    y4 = np.sqrt(x)
+   # y1 = x**2
+    #y2 = x**3
+    #y3 = x**4
+    #y4 = np.sqrt(x)
+    
+    y1 = []
+    for i in x:
+        y1.append(i**2)
+
+    y2 = []
+    for i in x:
+        y2.append(i**3)
+
+    y3 = []
+    for i in x:
+        y3.append(i**4)
+
+    y4 = []
+    for i in x:
+        y4.append(np.sqrt(i))
+
+    
 
     # Alumnos: Esos cuatro gráficos deben estar colocados
     # en la diposición de 2 filas y 2 columna:
@@ -53,5 +73,23 @@ if __name__ == '__main__':
     # Colocar una grilla a elección
 
     # Crear acá su gráfico
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2,2,1)
+    ax2 = fig.add_subplot(2,2,2)
+    ax3 = fig.add_subplot(2,2,3)
+    ax4 = fig.add_subplot(2,2,4)
 
+    ax1.plot(x, y1, color="r", label="fig1")
+    ax2.plot(x, y2, color="m", label="fig2")
+    ax3.plot(x, y3, color="y", label="fig3")
+    ax4.plot(x, y4, color="b", label="fig4")
+    ax1.legend()
+    ax2.legend()
+    ax3.legend()
+    ax4.legend()
+    ax1.grid()
+    ax2.grid()
+    ax3.grid()
+    ax4.grid()
+    plt.show()
     print("terminamos")
