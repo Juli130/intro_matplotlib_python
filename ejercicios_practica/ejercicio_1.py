@@ -8,6 +8,8 @@
 # que aparecen en verde con el hashtag "#"
 
 # Ejercicios de matplotlib
+from cProfile import label
+from turtle import color
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,7 +23,7 @@ if __name__ == '__main__':
     # Se desea graficar los valores de "x" e "y" en un gráfico de línea
     # A continuación los datos ya disponibles de "x" e "y" para que utilice:
     x = list(range(-10, 11, 1))
-
+    print(x)
     # Bucle que completa y calcula todos los valores de "y"
     y = []
     for i in x:
@@ -29,7 +31,11 @@ if __name__ == '__main__':
 
     # Alumno: Crear una "figura" y crear un "ax" con add_subplot
     # Graficar el "line plot" de "y" en función de "x"
-
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.plot(y, x,color = "r" ,label="fun1")
+    ax.legend()
+    plt.show()
     # Alumno: Colocar la leyenda y el label con el nombre de la función
     # Darle color a la línea a su elección
 

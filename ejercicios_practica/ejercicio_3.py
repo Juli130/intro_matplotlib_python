@@ -8,6 +8,8 @@
 # que aparecen en verde con el hashtag "#"
 
 # Ejercicios de matplotlib
+from cProfile import label
+from turtle import color
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -25,6 +27,7 @@ if __name__ == '__main__':
     # Función y = tanh(x) --> tangente hiperbólica
     y = np.tanh(x)
 
+    
     # Alumno: Graficar la función utilizando "scatter"
     # utilizando "x" e "y" ya disponible
 
@@ -33,5 +36,11 @@ if __name__ == '__main__':
     # Elegir un marker a elección
 
     # Crear acá su gráfico
-
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.scatter(x, y, color="r", label="fig1")
+    ax.legend()
+    ax.set_facecolor("whitesmoke")
+    ax.grid()
+    plt.show()
     print("terminamos")
